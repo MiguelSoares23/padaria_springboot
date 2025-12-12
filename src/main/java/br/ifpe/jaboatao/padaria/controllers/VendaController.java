@@ -1,4 +1,4 @@
-package br.ifpe.jaboatao.padaria.spring_boot;
+package br.ifpe.jaboatao.padaria.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
