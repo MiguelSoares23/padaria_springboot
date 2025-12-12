@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Consultar Clientes</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 700px;
+            margin: 50px auto;
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        form {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        input {
+            flex: 1;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+        button {
+            padding: 12px 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .btn-todos {
+            background: #4caf50;
+            width: 100%;
+            margin-top: 10px;
+        }
+        .voltar {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .voltar a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Consultar Clientes</h1>
+        <form action="/cliente/buscar" method="get">
+            <input type="text" name="nome" placeholder="Digite o nome do cliente..." />
+            <button type="submit">Buscar</button>
+        </form>
+        <form action="/cliente/buscar" method="get">
+            <button type="submit" class="btn-todos">Ver Todos os Clientes</button>
+        </form>
+        <div class="voltar">
+            <a href="/">← Voltar ao Menu</a>
+        </div>
+    </div>
+</body>
+</html>

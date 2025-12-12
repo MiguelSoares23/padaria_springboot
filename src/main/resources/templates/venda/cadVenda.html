@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Registrar Venda</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; padding: 20px; }
+        .container { max-width: 600px; margin: 50px auto; background: white; padding: 40px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+        h1 { color: #333; margin-bottom: 30px; text-align: center; }
+        form { display: flex; flex-direction: column; gap: 20px; }
+        label { font-weight: bold; color: #555; }
+        input, select { padding: 12px; border: 2px solid #ddd; border-radius: 8px; font-size: 16px; }
+        button { padding: 15px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; border-radius: 8px; font-size: 18px; font-weight: bold; cursor: pointer; }
+        .voltar { text-align: center; margin-top: 20px; }
+        .voltar a { color: #667eea; text-decoration: none; font-weight: bold; }
+        .nota { background: #fff3cd; padding: 15px; border-radius: 8px; margin-bottom: 20px; border-left: 4px solid #ffc107; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Registrar Venda</h1>
+        <div class="nota">
+            <strong>Associação com Cliente e Funcionário</strong><br>
+            Esta venda ficará vinculada ao cliente e funcionário selecionados.
+        </div>
+        <form action="/venda/cadastrar" method="post">
+            <div>
+                <label>Data:</label>
+                <input type="date" name="data" required />
+            </div>
+            <div>
+                <label>Cliente:</label>
+                <select name="idCliente" required>
+                    <option value="">Selecione o cliente...</option>
+                    <option th:each="cliente : ${clientes}" 
+                            th:value="${cliente.idCliente}" 
+                            th:text="${cliente.nome}"></option>
+                </select>
+            </div>
+            <div>
+                <label>Funcionário:</label>
+                <select name="idFuncionario" required>
+                    <option value="">Selecione o funcionário...</option>
+                    <option th:each="funcionario : ${funcionarios}" 
+                            th:value="${funcionario.idFuncionario}" 
+                            th:text="${funcionario.nome}"></option>
+                </select>
+            </div>
+            <div>
+                <label>Valor Total (R$):</label>
+                <input type="number" name="valorTotal" step="0.01" required />
+            </div>
+            <button type="submit">Registrar Venda</button>
+        </form>
+        <div class="voltar"><a href="/">← Voltar ao Menu</a></div>
+    </div>
+</body>
+</html>

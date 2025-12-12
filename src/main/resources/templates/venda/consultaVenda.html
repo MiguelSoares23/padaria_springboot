@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Consultar Vendas</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; padding: 20px; }
+        .container { max-width: 700px; margin: 50px auto; background: white; padding: 40px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+        h1 { color: #333; margin-bottom: 30px; text-align: center; }
+        form { margin-bottom: 20px; }
+        button { padding: 12px 30px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; width: 100%; }
+        .voltar { text-align: center; margin-top: 20px; }
+        .voltar a { color: #667eea; text-decoration: none; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Consultar Vendas</h1>
+        <form action="/venda/buscar" method="get">
+            <button type="submit">Ver Todas as Vendas</button>
+        </form>
+        <div class="voltar"><a href="/">← Voltar ao Menu</a></div>
+    </div>
+</body>
+</html>

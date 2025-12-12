@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastrar Produto</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        h1 { color: #333; margin-bottom: 30px; text-align: center; }
+        form { display: flex; flex-direction: column; gap: 20px; }
+        label { font-weight: bold; color: #555; margin-bottom: 5px; }
+        input, select { padding: 12px; border: 2px solid #ddd; border-radius: 8px; font-size: 16px; }
+        input:focus { outline: none; border-color: #667eea; }
+        button {
+            padding: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .voltar { text-align: center; margin-top: 20px; }
+        .voltar a { color: #667eea; text-decoration: none; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Cadastrar Produto</h1>
+        <form action="/produto/cadastrar" method="post">
+            <div>
+                <label>Nome do Produto:</label>
+                <input type="text" name="nome" required />
+            </div>
+            <div>
+                <label>Preço (R$):</label>
+                <input type="number" name="preco" step="0.01" required />
+            </div>
+            <div>
+                <label>Quantidade em Estoque:</label>
+                <input type="number" name="qtdEstoque" required />
+            </div>
+            <div>
+                <label>Categoria:</label>
+                <select name="categoria" required>
+                    <option value="">Selecione...</option>
+                    <option value="Panificação">Panificação</option>
+                    <option value="Confeitaria">Confeitaria</option>
+                    <option value="Bebidas">Bebidas</option>
+                    <option value="Salgados">Salgados</option>
+                    <option value="Outros">Outros</option>
+                </select>
+            </div>
+            <button type="submit">Cadastrar Produto</button>
+        </form>
+        <div class="voltar">
+            <a href="/">← Voltar ao Menu</a>
+        </div>
+    </div>
+</body>
+</html>
+

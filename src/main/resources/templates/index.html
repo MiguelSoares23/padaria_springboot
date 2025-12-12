@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Sistema Padaria</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        h1 { font-size: 2.5em; margin-bottom: 10px; }
+        .subtitle { opacity: 0.9; font-size: 1.1em; }
+        .menu {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 40px;
+        }
+        .card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-radius: 15px;
+            padding: 25px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+        }
+        .card h2 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+        .links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .links a {
+            display: block;
+            padding: 12px 20px;
+            background: white;
+            color: #667eea;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s;
+            text-align: center;
+        }
+        .links a:hover {
+            background: #667eea;
+            color: white;
+            transform: translateX(5px);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Sistema Padaria</h1>
+            <p class="subtitle">Gestão Completa para sua Padaria</p>
+        </header>
+        
+        <div class="menu">
+            <div class="card">
+                <h2>👥 Clientes</h2>
+                <div class="links">
+                    <a href="/cliente/novo">Cadastrar Novo</a>
+                    <a href="/cliente/consultar">Consultar</a>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Produtos</h2>
+                <div class="links">
+                    <a href="/produto/novo">Cadastrar Novo</a>
+                    <a href="/produto/consultar">Consultar</a>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Fornecedores</h2>
+                <div class="links">
+                    <a href="/fornecedor/novo">Cadastrar Novo</a>
+                    <a href="/fornecedor/consultar">Consultar</a>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Funcionários</h2>
+                <div class="links">
+                    <a href="/funcionario/novo">Cadastrar Novo</a>
+                    <a href="/funcionario/consultar">Consultar</a>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Padarias</h2>
+                <div class="links">
+                    <a href="/padaria/novo">Cadastrar Nova</a>
+                    <a href="/padaria/consultar">Consultar</a>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Vendas</h2>
+                <div class="links">
+                    <a href="/venda/novo">Registrar Venda</a>
+                    <a href="/venda/consultar">Consultar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

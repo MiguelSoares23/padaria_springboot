@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastrar Funcionário</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        h1 { color: #333; margin-bottom: 30px; text-align: center; }
+        form { display: flex; flex-direction: column; gap: 20px; }
+        label { font-weight: bold; color: #555; margin-bottom: 5px; }
+        input, select { padding: 12px; border: 2px solid #ddd; border-radius: 8px; font-size: 16px; }
+        input:focus, select:focus { outline: none; border-color: #667eea; }
+        button {
+            padding: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .voltar { text-align: center; margin-top: 20px; }
+        .voltar a { color: #667eea; text-decoration: none; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Cadastrar Funcionário</h1>
+        <form action="/funcionario/cadastrar" method="post">
+            <div>
+                <label>Nome:</label>
+                <input type="text" name="nome" required />
+            </div>
+            <div>
+                <label>Cargo:</label>
+                <select name="cargo" required>
+                    <option value="">Selecione...</option>
+                    <option value="Atendente">Atendente</option>
+                    <option value="Padeiro">Padeiro</option>
+                    <option value="Confeiteiro">Confeiteiro</option>
+                    <option value="Caixa">Caixa</option>
+                    <option value="Gerente">Gerente</option>
+                    <option value="Estoquista">Estoquista</option>
+                </select>
+            </div>
+            <div>
+                <label>Salário (R$):</label>
+                <input type="number" name="salario" step="0.01" required />
+            </div>
+            <button type="submit">Cadastrar</button>
+        </form>
+        <div class="voltar">
+            <a href="/">← Voltar ao Menu</a>
+        </div>
+    </div>
+</body>
+</html>

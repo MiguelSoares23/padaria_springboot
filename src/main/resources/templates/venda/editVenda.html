@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Venda</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; padding: 20px; }
+        .container { max-width: 600px; margin: 50px auto; background: white; padding: 40px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+        h1 { color: #333; margin-bottom: 30px; text-align: center; }
+        form { display: flex; flex-direction: column; gap: 20px; }
+        label { font-weight: bold; color: #555; }
+        input, select { padding: 12px; border: 2px solid #ddd; border-radius: 8px; font-size: 16px; }
+        input[readonly] { background: #f5f5f5; cursor: not-allowed; }
+        button { padding: 15px; background: linear-gradient(135deg, #2196F3 0%, #1976D2 100%); color: white; border: none; border-radius: 8px; font-size: 18px; font-weight: bold; cursor: pointer; }
+        .voltar { text-align: center; margin-top: 20px; }
+        .voltar a { color: #667eea; text-decoration: none; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Editar Venda</h1>
+        <form action="/venda/atualizar" method="post">
+            <input type="hidden" name="idVenda" th:value="${venda.idVenda}" />
+            <div><label>ID:</label><input type="text" th:value="${venda.idVenda}" readonly /></div>
+            <div><label>Data:</label><input type="date" name="data" th:value="${venda.data}" required /></div>
+            <div>
+                <label>Cliente:</label>
+                <select name="idCliente" required>
+                    <option th:each="cliente : ${clientes}" 
+                            th:value="${cliente.idCliente}" 
+                            th:text="${cliente.nome}"
+                            th:selected="${cliente.idCliente == venda.idCliente}"></option>
+                </select>
+            </div>
+            <div>
+                <label>Funcionário:</label>
+                <select name="idFuncionario" required>
+                    <option th:each="funcionario : ${funcionarios}" 
+                            th:value="${funcionario.idFuncionario}" 
+                            th:text="${funcionario.nome}"
+                            th:selected="${funcionario.idFuncionario == venda.idFuncionario}"></option>
+                </select>
+            </div>
+            <div><label>Valor Total (R$):</label><input type="number" name="valorTotal" step="0.01" th:value="${venda.valorTotal}" required /></div>
+            <button type="submit">Salvar Alterações</button>
+        </form>
+        <div class="voltar"><a href="/venda/buscar">← Voltar à Consulta</a></div>
+    </div>
+</body>
+</html>
+Projeto Spring Boot com cadastro e consulta de entidades - Claude
