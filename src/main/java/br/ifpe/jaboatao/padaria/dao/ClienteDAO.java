@@ -1,9 +1,11 @@
 package br.ifpe.jaboatao.padaria.dao;
 
-import org.springframework.jdbc.core.simple.jdbcClient;
-import org.springframework.stereotype.Repository;
-import br.ifpe.jaboatao.padaria.models.Cliente;
 import java.util.List;
+
+import org.springframework.jdbc.core.simple.JdbcClient;
+import org.springframework.stereotype.Repository;
+
+import br.ifpe.jaboatao.padaria.models.Cliente;
 
 @Repository
 public class ClienteDAO {
@@ -15,7 +17,7 @@ public class ClienteDAO {
 
     public void create(Cliente cliente) {
         String sql = "INSERT INTO cliente (nome, cpf, telefone) VALUES (?, ?, ?)";
-        jdbcCliente.sql(sql)
+        jdbcClient.sql(sql)
             .param(cliente.getNome())
             .param(cliente.getCpf())
             .param(cliente.getTelefone())
